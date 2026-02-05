@@ -1,0 +1,58 @@
+app.jsx
+
+import React, { useState } from 'react'
+
+function App() {
+  const [activeTab,setactiveTab]=useState("Home")
+  return (
+    <div style={Styles.Container}>
+    <h2>Tab component</h2>
+
+    <div style={Styles.tabContainer}>
+    <button style={activeTab === "Home" ? Styles.activeBtn:Styles.btn} onClick={()=> setactiveTab("Home")}>Home</button><br />
+    <button style={activeTab === "About" ? Styles.activeBtn:Styles.btn} onClick={()=> setactiveTab("About")}>About</button><br />
+    <button style={activeTab === "Contact" ? Styles.activeBtn:Styles.btn} onClick={()=> setactiveTab("Contact")}>Contact</button>
+    </div>
+
+    <div style={Styles.contentBox}>
+      {activeTab === "Home" && (
+        <p>This is Home page</p>
+      )}
+      {activeTab === "About" && (
+        <p>hi about page i'm reac</p>
+      )}
+      {activeTab === "Contact" && (
+        <p>Contact Us:xxxxxxx</p>
+      )}
+
+    </div>
+    </div>
+  )
+}
+const Styles={
+  Container:{
+    minHeight:"100vh",
+    background:"lightgrey",
+    textAlign:"center"
+    
+  },
+  tabContainer:{
+    padding:"20px"
+  },
+  activeBtn:{
+    background:"lightblue"
+
+  },
+  Btn:{
+    background:"white"
+  },
+  contentBox:{
+    height:"100px",
+    width:"200px",
+    border:"1px solid",
+    borderRadius:"10px",
+    marginLeft:"550px"
+  }
+}
+export default App
+//
